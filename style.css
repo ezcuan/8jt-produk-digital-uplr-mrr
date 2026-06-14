@@ -114,7 +114,57 @@ FLOATING STICKY CTA
     line-height: 1.1;
     color: #fff;
 }
-/* BUTTON */
+
+/* ================================
+SOCIAL BUTTONS
+================================ */
+.social-buttons{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+.social-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 18px;
+    border-radius:14px;
+    text-decoration:none;
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-size:.92rem;
+    font-weight:600;
+    color:#fff;
+    transition:transform .2s ease,opacity .2s ease;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+}
+.social-btn:hover{
+    transform:translateY(-1px);
+}
+.social-btn:active{
+    transform:scale(.98);
+}
+.social-btn svg{
+    width:1.1em;
+    height:1.1em;
+    flex-shrink:0;
+}
+
+/* Instagram */
+.instagram-btn{
+    background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF);
+    box-shadow:0 6px 18px rgba(221,42,123,.25);
+}
+/* Threads */
+.threads-btn{
+    background:#111;
+    box-shadow:0 6px 18px rgba(0,0,0,.18);
+}
+
+/* STICKY CTA BUTTON */
 .sticky-cta-btn{
     display: inline-flex;
     align-items: center;
