@@ -116,52 +116,37 @@ FLOATING STICKY CTA
 }
 
 /* ================================
-SOCIAL BUTTONS
+MINIMAL SOCIAL BUTTONS
 ================================ */
-.social-buttons{
+.minimal-socials{
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
+    gap:14px;
 }
-.social-btn{
-    display:inline-flex;
+.minimal-social-btn{
+    width:44px;
+    height:44px;
+    display:flex;
     align-items:center;
     justify-content:center;
-    gap:8px;
-    padding:12px 18px;
-    border-radius:14px;
+    border-radius:9999px;
+    color:#111;
     text-decoration:none;
-    font-family:'Plus Jakarta Sans',sans-serif;
-    font-size:.92rem;
-    font-weight:600;
-    color:#fff;
-    transition:transform .2s ease,opacity .2s ease;
+    transition:transform .18s ease,opacity .18s ease;
     -webkit-tap-highlight-color:transparent;
     touch-action:manipulation;
 }
-.social-btn:hover{
+.minimal-social-btn:hover{
     transform:translateY(-1px);
 }
-.social-btn:active{
-    transform:scale(.98);
+.minimal-social-btn:active{
+    transform:scale(.96);
 }
-.social-btn svg{
-    width:1.1em;
-    height:1.1em;
-    flex-shrink:0;
-}
-
-/* Instagram */
-.instagram-btn{
-    background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF);
-    box-shadow:0 6px 18px rgba(221,42,123,.25);
-}
-/* Threads */
-.threads-btn{
-    background:#111;
-    box-shadow:0 6px 18px rgba(0,0,0,.18);
+.minimal-social-btn svg{
+    width:24px;
+    height:24px;
+    display:block;
 }
 
 /* STICKY CTA BUTTON */
