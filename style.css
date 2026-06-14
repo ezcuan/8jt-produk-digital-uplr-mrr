@@ -1,18 +1,19 @@
 /* Smooth scroll */
 html { scroll-behavior: smooth; }
 
-/* Sticky CTA shadow */
-#sticky-cta { box-shadow: 0 -4px 24px rgba(0,0,0,0.10); }
+/* Sticky CTA shadow — handled by .sticky-cta rule below, no duplicate needed */
 
 /* Fade-in on scroll */
 .fade-in {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    will-change: opacity, transform;
 }
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+    will-change: auto;
 }
 
 /* Gradient text */
@@ -89,11 +90,14 @@ FLOATING STICKY CTA
     border-radius: 20px;
     box-shadow: 0 8px 24px rgba(0,0,0,.22);
     opacity: 0;
-    transition:transform .35s ease,opacity .35s ease;
+    transition: transform .35s ease, opacity .35s ease;
+    will-change: transform, opacity;
+    pointer-events: none; /* non-clickable saat tersembunyi */
 }
 .sticky-cta.show{
     transform: translateX(-50%) translateY(0);
     opacity: 1;
+    pointer-events: auto;
 }
 /* LEFT SIDE */
 .sticky-cta-left{
