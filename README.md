@@ -10,3 +10,5 @@ Built with:
 
 Live:
 https://ezcuan.github.io/8jt-produk-digital-uplr-mrr
+
+Project by Otto Matick Al-Gorithmy
