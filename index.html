@@ -5,790 +5,950 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>8 Juta+ Produk Digital Siap Pakai & Jual Ulang</title>
   <meta name="description" content="Akses 8 juta+ produk digital premium dengan lisensi jual ulang U-PLR & MRR | Cocok untuk dipakai sendiri atau dijual kembali untuk dapetin cuan online."/>
-
-  <!-- Open Graph -->
   <meta property="og:title" content="8 Juta+ Produk Digital Siap Pakai & Jual Ulang"/>
   <meta property="og:description" content="Akses 8 juta+ produk digital premium dengan lisensi jual ulang U-PLR & MRR | Cocok untuk dipakai sendiri atau dijual kembali untuk dapetin cuan online."/>
   <meta property="og:image" content="URL_GAMBAR_THUMBNAIL"/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://ezcuan.github.io/8jt-produk-digital-uplr-mrr"/>
-
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
 
-  <!-- Preconnect: kurangi latency CDN -->
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="preconnect" href="https://connect.facebook.net">
-
-  <!-- Tailwind config HARUS sebelum Tailwind CDN -->
-  <script>
-    window.tailwind = window.tailwind || {};
-    window.tailwindConfig = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50:  '#faf5ff',
-              100: '#f3e8ff',
-              500: '#7C3AED',
-              600: '#6D28D9',
-              700: '#5B21B6',
-            },
-            accent: '#EC4899',
-          },
-          fontFamily: {
-            sans: ['system-ui', '-apple-system', 'sans-serif'],
-          }
-        }
-      }
+  <!-- ============================================================
+       ZERO-CDN: semua CSS inline — tidak ada render-blocking request
+       Tailwind CDN dihapus, Phosphor CDN dihapus.
+       Icon diganti SVG inline. Style dari style.css di-inline juga.
+  ============================================================= -->
+  <style>
+    /* ── Reset & base ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #fff;
+      color: #1f2937;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 90px;
     }
-  </script>
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { font-family: inherit; cursor: pointer; background: none; border: none; }
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    /* ── Brand tokens ─────────────────────────────────────── */
+    :root {
+      --brand-50:  #faf5ff;
+      --brand-100: #f3e8ff;
+      --brand-500: #7C3AED;
+      --brand-600: #6D28D9;
+      --brand-700: #5B21B6;
+      --accent:    #EC4899;
+      --gray-50:   #f9fafb;
+      --gray-100:  #f3f4f6;
+      --gray-200:  #e5e7eb;
+      --gray-400:  #9ca3af;
+      --gray-500:  #6b7280;
+      --gray-600:  #4b5563;
+      --gray-700:  #374151;
+      --gray-800:  #1f2937;
+      --gray-900:  #111827;
+      --green-500: #22c55e;
+      --yellow-400:#facc15;
+      --white:     #fff;
+    }
 
-  <script>
-    if (window.tailwind) tailwind.config = window.tailwindConfig;
-  </script>
+    /* ── Layout helpers ───────────────────────────────────── */
+    .max-w-md  { max-width: 28rem; }
+    .mx-auto   { margin-left: auto; margin-right: auto; }
+    .px-4      { padding-left: 1rem; padding-right: 1rem; }
+    .py-6      { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+    .py-10     { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+    .py-12     { padding-top: 3rem; padding-bottom: 3rem; }
+    .pt-10     { padding-top: 2.5rem; }
+    .pb-8      { padding-bottom: 2rem; }
+    .mb-1      { margin-bottom: .25rem; }
+    .mb-2      { margin-bottom: .5rem; }
+    .mb-3      { margin-bottom: .75rem; }
+    .mb-4      { margin-bottom: 1rem; }
+    .mb-6      { margin-bottom: 1.5rem; }
+    .mb-8      { margin-bottom: 2rem; }
+    .mt-1      { margin-top: .25rem; }
+    .mt-6      { margin-top: 1.5rem; }
+    .mt-0\.5   { margin-top: .125rem; }
+    .gap-2     { gap: .5rem; }
+    .gap-3     { gap: .75rem; }
+    .gap-4     { gap: 1rem; }
+    .pb-2      { padding-bottom: .5rem; }
+    .pb-4      { padding-bottom: 1rem; }
+    .p-4       { padding: 1rem; }
+    .p-6       { padding: 1.5rem; }
+    .px-3      { padding-left: .75rem; padding-right: .75rem; }
+    .py-1      { padding-top: .25rem; padding-bottom: .25rem; }
+    .py-4      { padding-top: 1rem; padding-bottom: 1rem; }
+    .py-5      { padding-top: 1.25rem; padding-bottom: 1.25rem; }
 
-  <!-- Phosphor Icons — jsDelivr lebih cepat dari unpkg -->
-  <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/index.min.js" defer></script>
+    /* ── Flex & grid ──────────────────────────────────────── */
+    .flex            { display: flex; }
+    .flex-wrap       { flex-wrap: wrap; }
+    .flex-shrink-0   { flex-shrink: 0; }
+    .grid            { display: grid; }
+    .grid-cols-2     { grid-template-columns: repeat(2, 1fr); }
+    .items-center    { align-items: center; }
+    .items-start     { align-items: flex-start; }
+    .justify-center  { justify-content: center; }
+    .justify-between { justify-content: space-between; }
+    .-space-x-2 > * + * { margin-left: -.5rem; }
 
-  <link rel="stylesheet" href="style.css">
+    /* ── Display / hidden ─────────────────────────────────── */
+    .block   { display: block; }
+    .hidden  { display: none; }
+    .w-full  { width: 100%; }
+    .overflow-hidden { overflow: hidden; }
 
-  <!-- ============================================
-       META PIXEL
-  ============================================ -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1005373541927153');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1005373541927153&ev=PageView&noscript=1"/>
-  </noscript>
+    /* ── Typography ───────────────────────────────────────── */
+    .text-xs        { font-size: .75rem; line-height: 1rem; }
+    .text-sm        { font-size: .875rem; line-height: 1.25rem; }
+    .text-lg        { font-size: 1.125rem; line-height: 1.75rem; }
+    .text-xl        { font-size: 1.25rem; line-height: 1.75rem; }
+    .text-2xl       { font-size: 1.5rem; line-height: 2rem; }
+    .text-3xl       { font-size: 1.875rem; line-height: 2.25rem; }
+    .text-5xl       { font-size: 3rem; line-height: 1; }
+    .font-semibold  { font-weight: 600; }
+    .font-bold      { font-weight: 700; }
+    .font-extrabold { font-weight: 800; }
+    .text-center    { text-align: center; }
+    .text-left      { text-align: left; }
+    .leading-tight   { line-height: 1.25; }
+    .leading-snug    { line-height: 1.375; }
+    .leading-relaxed { line-height: 1.625; }
+    .tracking-wide   { letter-spacing: .025em; }
+    .tracking-widest { letter-spacing: .1em; }
+    .uppercase       { text-transform: uppercase; }
+    .line-through    { text-decoration: line-through; }
+    .whitespace-nowrap { white-space: nowrap; }
+    .antialiased     { -webkit-font-smoothing: antialiased; }
 
-  <!-- ============================================
-       CAPI SETUP
-       Connect via server-side event or
-       use integration partner (Lynk.id, dsb)
-       Add endpoint CAPI here if there's any
-  ============================================ -->
+    /* ── Colors ───────────────────────────────────────────── */
+    .text-white      { color: #fff; }
+    .text-gray-400   { color: var(--gray-400); }
+    .text-gray-500   { color: var(--gray-500); }
+    .text-gray-600   { color: var(--gray-600); }
+    .text-gray-700   { color: var(--gray-700); }
+    .text-gray-800   { color: var(--gray-800); }
+    .text-gray-900   { color: var(--gray-900); }
+    .text-brand-100  { color: var(--brand-100); }
+    .text-brand-500  { color: var(--brand-500); }
+    .text-green-500  { color: var(--green-500); }
+    .text-yellow-400 { color: var(--yellow-400); }
+    .text-accent     { color: var(--accent); }
 
+    .bg-white        { background: #fff; }
+    .bg-gray-50      { background: var(--gray-50); }
+    .bg-brand-50     { background: var(--brand-50); }
+    .bg-brand-100    { background: var(--brand-100); }
+    .bg-brand-500    { background: var(--brand-500); }
+    .bg-white-10     { background: rgba(255,255,255,.1); }
+    .bg-purple-300   { background: #c4b5fd; }
+    .bg-pink-300     { background: #f9a8d4; }
+    .bg-indigo-300   { background: #a5b4fc; }
+
+    /* ── Borders ──────────────────────────────────────────── */
+    .border          { border: 1px solid var(--gray-200); }
+    .border-2        { border: 2px solid; }
+    .border-4        { border: 4px solid; }
+    .border-t        { border-top: 1px solid var(--gray-100); }
+    .border-white    { border-color: #fff; }
+    .border-gray-100 { border-color: var(--gray-100); }
+    .border-gray-200 { border-color: var(--gray-200); }
+    .border-brand-100{ border-color: var(--brand-100); }
+    .border-brand-500{ border-color: var(--brand-500); }
+
+    /* ── Border radius ────────────────────────────────────── */
+    .rounded-full    { border-radius: 9999px; }
+    .rounded-xl      { border-radius: .75rem; }
+    .rounded-2xl     { border-radius: 1rem; }
+    .rounded-3xl     { border-radius: 1.5rem; }
+
+    /* ── Shadows ──────────────────────────────────────────── */
+    .shadow-lg   { box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05); }
+    .shadow-md   { box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06); }
+
+    /* ── Transitions ──────────────────────────────────────── */
+    .transition-colors { transition-property: background-color, border-color, color; transition-duration: 200ms; }
+    .transition-transform { transition-property: transform; transition-duration: 200ms; }
+    .duration-200 { transition-duration: 200ms; }
+
+    /* ── Sizing helpers ───────────────────────────────────── */
+    .w-7  { width: 1.75rem; }
+    .h-7  { height: 1.75rem; }
+
+    /* ── SPACE-Y helpers ──────────────────────────────────── */
+    .space-y-2 > * + * { margin-top: .5rem; }
+    .space-y-3 > * + * { margin-top: .75rem; }
+    .space-y-4 > * + * { margin-top: 1rem; }
+
+    /* ── Gap 0.5 ──────────────────────────────────────────── */
+    .gap-0\.5 { gap: .125rem; }
+
+    /* ─────────────────────────────────────────────────────────
+       COMPONENT STYLES (dari style.css + komponen baru)
+    ───────────────────────────────────────────────────────── */
+
+    /* Gradient text */
+    .grad-text {
+      background: linear-gradient(135deg, var(--brand-500), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Img placeholder */
+    .img-placeholder {
+      background: var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-400);
+    }
+
+    /* Fade-in on scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .5s ease, transform .5s ease;
+      will-change: opacity, transform;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+      will-change: auto;
+    }
+
+    /* Testimonial scroll */
+    .testi-scroll {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: .5rem;
+    }
+    .testi-scroll::-webkit-scrollbar { display: none; }
+    .testi-card {
+      flex: 0 0 280px;
+      scroll-snap-align: start;
+    }
+
+    /* Bundle preview scroll */
+    .bundle-scroll {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .bundle-scroll::-webkit-scrollbar { display: none; }
+    .bundle-card {
+      flex: 0 0 220px;
+      scroll-snap-align: start;
+    }
+
+    /* ── Sticky CTA ───────────────────────────────────────── */
+    .sticky-cta {
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%) translateY(120px);
+      z-index: 9998;
+      width: calc(100% - 32px);
+      max-width: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 14px 12px 18px;
+      padding-bottom: calc(12px + env(safe-area-inset-bottom));
+      background: rgba(28,107,58,.96);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.22);
+      opacity: 0;
+      transition: transform .35s ease, opacity .35s ease;
+      will-change: transform, opacity;
+      pointer-events: none;
+    }
+    .sticky-cta.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .sticky-cta-left { flex: 1; min-width: 0; }
+    .sticky-cta-label {
+      font-size: .78rem;
+      line-height: 1.4;
+      font-weight: 500;
+      color: rgba(255,255,255,.82);
+    }
+    .sticky-cta-price {
+      margin-top: 2px;
+      font-size: 1.28rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: #fff;
+    }
+    .sticky-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-shrink: 0;
+      white-space: nowrap;
+      padding: 13px 18px;
+      border-radius: 14px;
+      background: linear-gradient(135deg,#2AAB5E,#1E8A4A);
+      color: #fff;
+      font-size: .9rem;
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(42,171,94,.28);
+      transition: transform .2s ease;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .sticky-cta-btn:active { transform: scale(.98); }
+    .sticky-cta-btn svg { width: 1em; height: 1em; flex-shrink: 0; }
+
+    /* ── CTA Button helpers ───────────────────────────────── */
+    .btn-primary {
+      display: block;
+      width: 100%;
+      background: var(--brand-500);
+      color: #fff;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.125rem;
+      border-radius: 1rem;
+      padding: 1.25rem;
+      transition: background .2s;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .btn-primary:active { background: var(--brand-700); }
+
+    /* ── Minimal social buttons ───────────────────────────── */
+    .minimal-socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 1rem;
+    }
+    .minimal-social-btn {
+      width: 44px; height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      color: #111;
+      transition: transform .18s ease;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .minimal-social-btn:active { transform: scale(.96); }
+    .minimal-social-btn svg { width: 24px; height: 24px; display: block; }
+
+    /* ── Icon helpers (ganti Phosphor) ───────────────────── */
+    .icon { display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; }
+    .icon svg { display: block; }
+    .icon-sm svg  { width: 1rem; height: 1rem; }
+    .icon-md svg  { width: 1.25rem; height: 1.25rem; }
+    .icon-lg svg  { width: 1.5rem; height: 1.5rem; }
+    .icon-xl svg  { width: 1.875rem; height: 1.875rem; }
+    .icon-2xl svg { width: 2rem; height: 2rem; }
+    .icon-3xl svg { width: 3rem; height: 3rem; }
+
+    /* FAQ caret rotate */
+    .faq-caret { transition: transform .2s; flex-shrink: 0; color: var(--gray-400); }
+    .faq-caret.open { transform: rotate(180deg); }
+
+    /* ── Stats white/10 ───────────────────────────────────── */
+    .stat-box {
+      background: rgba(255,255,255,.1);
+      border-radius: 1rem;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    /* Hover states for non-touch */
+    @media (hover: hover) {
+      .btn-primary:hover { background: var(--brand-600); }
+      .sticky-cta-btn:hover { transform: translateY(-1px); }
+      .minimal-social-btn:hover { transform: translateY(-1px); }
+    }
+
+    @media (max-width: 480px) {
+      .sticky-cta { gap: 10px; padding: 11px 12px 11px 15px; }
+      .sticky-cta-label { font-size: .72rem; }
+      .sticky-cta-price { font-size: 1.15rem; }
+      .sticky-cta-btn   { padding: 12px 15px; font-size: .82rem; }
+    }
+  </style>
 </head>
 
-<body class="bg-white text-gray-800 font-sans antialiased">
+<body>
 
 <!-- STICKY CTA BAR -->
 <div class="sticky-cta" id="sticky-cta">
-    <div class="sticky-cta-left">
-        <div class="sticky-cta-label">
-            8 Juta+ Produk Digital · U-PLR & MRR
-        </div>
-        <div class="sticky-cta-price">
-            Rp 89.000,-
-        </div>
-    </div>
-    <a href="https://lynk.id/ez.cuan/o2ykwo4vkmor/checkout" class="sticky-cta-btn" role="button"
-       onclick="trackCTA('sticky'); fbq('track','AddToCart',{content_name:'8 Juta+ Produk Digital',content_category:'Digital Product',currency:'IDR',value:89000});">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M7 4h-2l-1 2v2h2l2.6 5.59-1.35 2.45A2 2 0 0 0 9 19h10v-2H9.42a.25.25 0 0 1-.22-.37L10.1 15h7.45a2 2 0 0 0 1.79-1.11L23 7H8.42l-.94-2ZM9 20a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/>
-        </svg>
-        <span>Beli Sekarang</span>
-    </a>
+  <div class="sticky-cta-left">
+    <div class="sticky-cta-label">8 Juta+ Produk Digital · U-PLR & MRR</div>
+    <div class="sticky-cta-price">Rp 89.000,-</div>
+  </div>
+  <a href="https://lynk.id/ez.cuan/o2ykwo4vkmor/checkout"
+     class="sticky-cta-btn"
+     onclick="trackCTA('sticky')">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M7 4H5L4 6v2h2l2.6 5.59-1.35 2.45A2 2 0 0 0 9 19h10v-2H9.42a.25.25 0 0 1-.22-.37L10.1 15h7.45a2 2 0 0 0 1.79-1.11L23 7H8.42L7.48 5 7 4ZM9 20a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/>
+    </svg>
+    <span>Beli Sekarang</span>
+  </a>
 </div>
 
-<!-- HERO SECTION -->
-  <section class="bg-brand-50 px-4 pt-10 pb-8">
-    <div class="max-w-md mx-auto">
+<!-- HERO -->
+<section class="bg-brand-50 px-4 pt-10 pb-8">
+  <div class="max-w-md mx-auto">
 
-      <!-- Eyebrow badge -->
-      <div class="flex justify-center mb-4">
-        <span class="bg-brand-100 text-brand-500 text-xs font-semibold
-                     px-3 py-1 rounded-full tracking-wide">
-          <!-- Tagline pendek / kategori produk -->
-          ✨ Gudang 8jt+ Produk Digital Premium
+    <div class="flex justify-center mb-4">
+      <span class="bg-brand-100 text-brand-500 text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
+        ✨ Gudang 8jt+ Produk Digital Premium
+      </span>
+    </div>
+
+    <h1 class="text-3xl font-extrabold text-center leading-tight text-gray-900 mb-3">
+      Headline utama yang<br/>
+      <span class="grad-text">bikin orang langsung ngerti</span><br/>
+      value produk lo
+    </h1>
+
+    <p class="text-center text-gray-600 text-sm leading-relaxed mb-6">
+      Satu kalimat yang menjelaskan <strong>untuk siapa</strong> dan
+      <strong>masalah apa yang lo solve</strong>. Singkat. Langsung ke inti.
+    </p>
+
+    <!-- Hero Image -->
+    <div class="img-placeholder rounded-2xl w-full mb-6" style="height:220px;">
+      <div class="text-center">
+        <!-- icon: image placeholder -->
+        <span class="icon icon-3xl" style="margin-bottom:.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+            <path d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16ZM40 56h176v102.75l-26.07-26.06a16 16 0 0 0-22.63 0l-20 20-44-44a16 16 0 0 0-22.62 0L40 149.37Zm176 144H40v-68.75l46.06-46.06 44 44a16 16 0 0 0 22.63 0l20-20L200 176.19V200Zm-72-96a12 12 0 1 1 12 12 12 12 0 0 1-12-12Z"/>
+          </svg>
         </span>
+        <span class="text-sm block">Gambar produk lo</span>
       </div>
+    </div>
 
-      <!-- Headline -->
-      <h1 class="text-3xl font-extrabold text-center leading-tight text-gray-900 mb-3">
-        Headline utama yang<br/>
-        <span class="grad-text">bikin orang langsung ngerti</span><br/>
-        value produk lo
-      </h1>
-
-      <!-- Subheadline -->
-      <p class="text-center text-gray-600 text-sm leading-relaxed mb-6">
-        Satu kalimat yang menjelaskan <strong>untuk siapa</strong> dan
-        <strong>masalah apa yang lo solve</strong>. Singkat. Langsung ke inti.
-      </p>
-
-      <!-- Hero Image (dummy) -->
-      <div class="img-placeholder rounded-2xl w-full mb-6"
-           style="height: 220px;">
-        <div class="text-center">
-          <i class="ph ph-image text-5xl mb-2 block"></i>
-          <span class="text-sm">Gambar produk lo</span>
-        </div>
+    <!-- Social proof mini -->
+    <div class="flex items-center justify-center gap-2 text-xs text-gray-500 mb-6">
+      <div class="flex -space-x-2">
+        <div class="w-7 h-7 rounded-full bg-purple-300 border-2 border-white flex items-center justify-center text-white text-xs font-bold">A</div>
+        <div class="w-7 h-7 rounded-full bg-pink-300 border-2 border-white flex items-center justify-center text-white text-xs font-bold">B</div>
+        <div class="w-7 h-7 rounded-full bg-indigo-300 border-2 border-white flex items-center justify-center text-white text-xs font-bold">C</div>
       </div>
+      <span>Sudah <strong class="text-gray-700">500+ orang</strong> yang beli</span>
+    </div>
 
-      <!-- Social proof mini -->
-      <div class="flex items-center justify-center gap-2 text-xs text-gray-500 mb-6">
-        <div class="flex -space-x-2">
-          <!-- Avatar dummy 1 -->
-          <div class="w-7 h-7 rounded-full bg-purple-300 border-2 border-white
-                      flex items-center justify-center text-white text-xs font-bold">A</div>
-          <!-- Avatar dummy 2 -->
-          <div class="w-7 h-7 rounded-full bg-pink-300 border-2 border-white
-                      flex items-center justify-center text-white text-xs font-bold">B</div>
-          <!-- Avatar dummy 3 -->
-          <div class="w-7 h-7 rounded-full bg-indigo-300 border-2 border-white
-                      flex items-center justify-center text-white text-xs font-bold">C</div>
-        </div>
-        <span>Sudah <strong class="text-gray-700">500+ orang</strong> yang beli</span>
-      </div>
+    <a href="https://lynk.id/ez.cuan/o2ykwo4vkmor/checkout"
+       onclick="trackCTA('hero')"
+       class="btn-primary shadow-lg mb-3">
+      Beli Sekarang - Rp 89.000,-
+    </a>
+    <p class="text-center text-xs text-gray-400">Pembayaran aman · File langsung dikirim</p>
+  </div>
+</section>
 
-      <!-- CTA Primary -->
-      <a href="https://lynk.id/ez.cuan/o2ykwo4vkmor/checkout"
-         onclick="trackCTA('hero')"
-         class="block w-full bg-brand-500 hover:bg-brand-600 active:bg-brand-700
-                text-white text-center font-bold text-lg rounded-2xl py-5
-                transition-colors duration-200 shadow-lg mb-3">
-        Beli Sekarang - Rp 89.000,-
-      </a>
-
-      <p class="text-center text-xs text-gray-400">
-        Pembayaran aman · File langsung dikirim
+<!-- PAIN POINTS -->
+<section class="px-4 py-10 bg-white fade-in" id="pain-section">
+  <div class="max-w-md mx-auto">
+    <p class="text-center text-xs font-semibold text-brand-500 tracking-widest uppercase mb-2">Relate ga?</p>
+    <h2 class="text-2xl font-extrabold text-center text-gray-900 mb-6 leading-snug">
+      Apakah ini yang<br/>lagi lo rasain?
+    </h2>
+    <ul class="space-y-4">
+      <li class="flex gap-3 items-start bg-gray-50 rounded-xl p-4">
+        <span style="font-size:1.5rem;">😩</span>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          <strong>Pain point 1</strong> — deskripsi masalah spesifik yang target market lo rasain.
+        </p>
+      </li>
+      <li class="flex gap-3 items-start bg-gray-50 rounded-xl p-4">
+        <span style="font-size:1.5rem;">😤</span>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          <strong>Pain point 2</strong> — semakin spesifik makin bagus, biar audiens ngerasa "ini gue banget."
+        </p>
+      </li>
+      <li class="flex gap-3 items-start bg-gray-50 rounded-xl p-4">
+        <span style="font-size:1.5rem;">😮‍💨</span>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          <strong>Pain point 3</strong> — tutup dengan yang paling relatable atau yang paling parah.
+        </p>
+      </li>
+    </ul>
+    <div class="mt-6 p-4 bg-brand-50 rounded-xl border border-brand-100">
+      <p class="text-sm text-gray-700 text-center leading-relaxed">
+        Masalahnya bukan karena lo kurang usaha.<br/>
+        <strong class="text-brand-500">Masalahnya adalah belum punya tools yang tepat.</strong>
       </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PAIN POINTS -->
-  <section class="px-4 py-10 bg-white fade-in" id="pain-section">
-    <div class="max-w-md mx-auto">
-      <p class="text-center text-xs font-semibold text-brand-500 tracking-widest uppercase mb-2">
-        Relate ga?
-      </p>
-      <h2 class="text-2xl font-extrabold text-center text-gray-900 mb-6 leading-snug">
-        Apakah ini yang<br/>lagi lo rasain?
-      </h2>
-      <ul class="space-y-4">
-        <li class="flex gap-3 items-start bg-gray-50 rounded-xl p-4">
-          <span class="text-2xl">😩</span>
-          <p class="text-sm text-gray-700 leading-relaxed">
-            <strong>Pain point 1</strong> — deskripsi masalah spesifik yang target market lo rasain.
-          </p>
+<!-- PRODUCT / BUNDLE PREVIEW -->
+<section class="px-4 py-10 bg-white fade-in" id="product-section">
+  <div class="max-w-md mx-auto">
+    <p class="text-center text-xs font-semibold text-brand-500 tracking-widest uppercase mb-2">Yang lo dapetin</p>
+    <h2 class="text-2xl font-extrabold text-center text-gray-900 mb-2 leading-snug">
+      Isi Lengkap<br/><span class="grad-text">Nama Produk Lo</span>
+    </h2>
+    <p class="text-center text-sm text-gray-500 mb-6">Geser untuk lihat semua isi →</p>
+
+    <!-- Bundle scroll -->
+    <div class="bundle-scroll pb-2 mb-6">
+      <!-- SVG image icon reused per card -->
+      <div class="bundle-card">
+        <div class="img-placeholder rounded-2xl mb-2" style="height:160px;">
+          <div class="text-center">
+            <span class="icon icon-2xl" style="margin-bottom:.25rem;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16ZM40 56h176v102.75l-26.07-26.06a16 16 0 0 0-22.63 0l-20 20-44-44a16 16 0 0 0-22.62 0L40 149.37Zm176 144H40v-68.75l46.06-46.06 44 44a16 16 0 0 0 22.63 0l20-20L200 176.19V200Zm-72-96a12 12 0 1 1 12 12 12 12 0 0 1-12-12Z"/></svg></span>
+            <span class="text-xs block">Preview 1</span>
+          </div>
+        </div>
+        <p class="text-xs font-semibold text-gray-700 text-center">Nama item / modul 1</p>
+      </div>
+      <div class="bundle-card">
+        <div class="img-placeholder rounded-2xl mb-2" style="height:160px;">
+          <div class="text-center">
+            <span class="icon icon-2xl" style="margin-bottom:.25rem;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16ZM40 56h176v102.75l-26.07-26.06a16 16 0 0 0-22.63 0l-20 20-44-44a16 16 0 0 0-22.62 0L40 149.37Zm176 144H40v-68.75l46.06-46.06 44 44a16 16 0 0 0 22.63 0l20-20L200 176.19V200Zm-72-96a12 12 0 1 1 12 12 12 12 0 0 1-12-12Z"/></svg></span>
+            <span class="text-xs block">Preview 2</span>
+          </div>
+        </div>
+        <p class="text-xs font-semibold text-gray-700 text-center">Nama item / modul 2</p>
+      </div>
+      <div class="bundle-card">
+        <div class="img-placeholder rounded-2xl mb-2" style="height:160px;">
+          <div class="text-center">
+            <span class="icon icon-2xl" style="margin-bottom:.25rem;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16ZM40 56h176v102.75l-26.07-26.06a16 16 0 0 0-22.63 0l-20 20-44-44a16 16 0 0 0-22.62 0L40 149.37Zm176 144H40v-68.75l46.06-46.06 44 44a16 16 0 0 0 22.63 0l20-20L200 176.19V200Zm-72-96a12 12 0 1 1 12 12 12 12 0 0 1-12-12Z"/></svg></span>
+            <span class="text-xs block">Preview 3</span>
+          </div>
+        </div>
+        <p class="text-xs font-semibold text-gray-700 text-center">Nama item / modul 3</p>
+      </div>
+      <div class="bundle-card">
+        <div class="img-placeholder rounded-2xl mb-2" style="height:160px;">
+          <div class="text-center">
+            <span class="icon icon-2xl" style="margin-bottom:.25rem;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16ZM40 56h176v102.75l-26.07-26.06a16 16 0 0 0-22.63 0l-20 20-44-44a16 16 0 0 0-22.62 0L40 149.37Zm176 144H40v-68.75l46.06-46.06 44 44a16 16 0 0 0 22.63 0l20-20L200 176.19V200Zm-72-96a12 12 0 1 1 12 12 12 12 0 0 1-12-12Z"/></svg></span>
+            <span class="text-xs block">Preview 4</span>
+          </div>
+        </div>
+        <p class="text-xs font-semibold text-gray-700 text-center">Nama item / modul 4</p>
+      </div>
+    </div>
+
+    <!-- What's included list -->
+    <div class="space-y-3">
+      <div class="flex gap-3 items-start">
+        <span class="icon icon-md flex-shrink-0 mt-0\.5 text-brand-500">
+          <!-- check-circle-fill -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66 98.34a8 8 0 0 1 0 11.32l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 0ZM232 128A104 104 0 1 1 128 24a104.11 104.11 0 0 1 104 104Zm-16 0a88 88 0 1 0-88 88 88.1 88.1 0 0 0 88-88Z"/></svg>
+        </span>
+        <div>
+          <p class="text-sm font-semibold text-gray-800">Item / Modul 1</p>
+          <p class="text-xs text-gray-500">Deskripsi singkat manfaatnya untuk pembeli.</p>
+        </div>
+      </div>
+      <div class="flex gap-3 items-start">
+        <span class="icon icon-md flex-shrink-0 mt-0\.5 text-brand-500">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66 98.34a8 8 0 0 1 0 11.32l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 0ZM232 128A104 104 0 1 1 128 24a104.11 104.11 0 0 1 104 104Zm-16 0a88 88 0 1 0-88 88 88.1 88.1 0 0 0 88-88Z"/></svg>
+        </span>
+        <div>
+          <p class="text-sm font-semibold text-gray-800">Item / Modul 2</p>
+          <p class="text-xs text-gray-500">Deskripsi singkat manfaatnya untuk pembeli.</p>
+        </div>
+      </div>
+      <div class="flex gap-3 items-start">
+        <span class="icon icon-md flex-shrink-0 mt-0\.5 text-brand-500">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66 98.34a8 8 0 0 1 0 11.32l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 0ZM232 128A104 104 0 1 1 128 24a104.11 104.11 0 0 1 104 104Zm-16 0a88 88 0 1 0-88 88 88.1 88.1 0 0 0 88-88Z"/></svg>
+        </span>
+        <div>
+          <p class="text-sm font-semibold text-gray-800">Item / Modul 3</p>
+          <p class="text-xs text-gray-500">Deskripsi singkat manfaatnya untuk pembeli.</p>
+        </div>
+      </div>
+      <div class="flex gap-3 items-start">
+        <span class="icon icon-md flex-shrink-0 mt-0\.5 text-accent">
+          <!-- gift icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216 72h-30.54C187.19 66.68 192 58.89 192 48a40 40 0 0 0-80 0c0 10.89 4.81 18.68 6.54 24H88a16 16 0 0 0-16 16v32a16 16 0 0 0 8 13.83V208a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16v-72.17A16 16 0 0 0 248 120V88a16 16 0 0 0-16-16Zm-40-24a24 24 0 0 1 24 24c0 13.42-20.27 24-24 24h-24v-2.89C152 83.79 158.74 48 176 48Zm-80 24a24 24 0 0 1 48 0c0 10.82-7 21.79-7.33 22.3A8 8 0 0 1 128 96H104V72ZM88 120V88h56v32Zm16 88v-72h40v72Zm112 0h-56v-72h56Zm16-88h-72V88h56v32Z"/></svg>
+        </span>
+        <div>
+          <p class="text-sm font-semibold text-gray-800">🎁 Bonus: Nama Bonus Eksklusif</p>
+          <p class="text-xs text-gray-500">Deskripsi bonus — buat yang bikin perceived value naik.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="px-4 py-10 bg-brand-500 fade-in">
+  <div class="max-w-md mx-auto">
+    <p class="text-center text-xs font-semibold tracking-widest uppercase mb-6" style="color:var(--brand-100);">Bukan sekadar klaim</p>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="stat-box"><p class="text-3xl font-extrabold text-white">500+</p><p class="text-xs mt-1" style="color:var(--brand-100);">Pembeli puas</p></div>
+      <div class="stat-box"><p class="text-3xl font-extrabold text-white">4.9★</p><p class="text-xs mt-1" style="color:var(--brand-100);">Rating rata-rata</p></div>
+      <div class="stat-box"><p class="text-3xl font-extrabold text-white">XX+</p><p class="text-xs mt-1" style="color:var(--brand-100);">Angka relevan produk</p></div>
+      <div class="stat-box"><p class="text-3xl font-extrabold text-white">Instan</p><p class="text-xs mt-1" style="color:var(--brand-100);">Akses setelah bayar</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="px-4 py-10 bg-white fade-in">
+  <div class="max-w-md mx-auto">
+    <p class="text-center text-xs font-semibold text-brand-500 tracking-widest uppercase mb-2">Kata mereka</p>
+    <h2 class="text-2xl font-extrabold text-center text-gray-900 mb-2">Yang bikin makin yakin</h2>
+    <p class="text-center text-sm text-gray-400 mb-6">Geser untuk lihat semua →</p>
+    <div class="testi-scroll">
+      <!-- Testi 1 -->
+      <div class="testi-card bg-gray-50 rounded-2xl p-4">
+        <div class="flex gap-3 items-center mb-3">
+          <div class="img-placeholder rounded-full flex-shrink-0" style="width:44px;height:44px;">
+            <!-- user icon -->
+            <span class="icon icon-md"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M230.92 212c-15.23-26.33-38.7-45.21-66.09-54.16a72 72 0 1 0-73.66 0C63.78 166.79 40.31 185.67 25.08 212a8 8 0 1 0 13.85 8c18.84-32.56 52.14-52 89.07-52s70.23 19.44 89.07 52a8 8 0 1 0 13.85-8ZM72 96a56 56 0 1 1 56 56 56.06 56.06 0 0 1-56-56Z"/></svg></span>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-gray-800">Nama Pembeli</p>
+            <p class="text-xs text-gray-400">@username_ig</p>
+          </div>
+        </div>
+        <div class="flex gap-0\.5 mb-2">★★★★★</div>
+        <p class="text-sm text-gray-700 leading-relaxed">"Tulis testimoni asli dari pembeli lo di sini. Makin spesifik makin bagus — ceritain sebelum/sesudah atau hasil konkretnya."</p>
+      </div>
+      <!-- Testi 2 -->
+      <div class="testi-card bg-gray-50 rounded-2xl p-4">
+        <div class="flex gap-3 items-center mb-3">
+          <div class="img-placeholder rounded-full flex-shrink-0" style="width:44px;height:44px;">
+            <span class="icon icon-md"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M230.92 212c-15.23-26.33-38.7-45.21-66.09-54.16a72 72 0 1 0-73.66 0C63.78 166.79 40.31 185.67 25.08 212a8 8 0 1 0 13.85 8c18.84-32.56 52.14-52 89.07-52s70.23 19.44 89.07 52a8 8 0 1 0 13.85-8ZM72 96a56 56 0 1 1 56 56 56.06 56.06 0 0 1-56-56Z"/></svg></span>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-gray-800">Nama Pembeli 2</p>
+            <p class="text-xs text-gray-400">@username_ig</p>
+          </div>
+        </div>
+        <div class="flex gap-0\.5 mb-2" style="color:var(--yellow-400);font-size:1rem;">★★★★★</div>
+        <p class="text-sm text-gray-700 leading-relaxed">"Testimoni kedua. Kalau punya screenshot testimoni asli, ganti section ini dengan komponen gambar — lebih powerful dari teks."</p>
+      </div>
+      <!-- Testi 3 -->
+      <div class="testi-card bg-gray-50 rounded-2xl p-4">
+        <div class="flex gap-3 items-center mb-3">
+          <div class="img-placeholder rounded-full flex-shrink-0" style="width:44px;height:44px;">
+            <span class="icon icon-md"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M230.92 212c-15.23-26.33-38.7-45.21-66.09-54.16a72 72 0 1 0-73.66 0C63.78 166.79 40.31 185.67 25.08 212a8 8 0 1 0 13.85 8c18.84-32.56 52.14-52 89.07-52s70.23 19.44 89.07 52a8 8 0 1 0 13.85-8ZM72 96a56 56 0 1 1 56 56 56.06 56.06 0 0 1-56-56Z"/></svg></span>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-gray-800">Nama Pembeli 3</p>
+            <p class="text-xs text-gray-400">@username_ig</p>
+          </div>
+        </div>
+        <div class="flex gap-0\.5 mb-2" style="color:var(--yellow-400);font-size:1rem;">★★★★★</div>
+        <p class="text-sm text-gray-700 leading-relaxed">"Testimoni ketiga. Idealnya 5–8 testimoni biar section ini panjang dan bikin percaya."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING / URGENCY -->
+<section class="px-4 py-10 bg-gray-50 fade-in">
+  <div class="max-w-md mx-auto">
+    <p class="text-center text-xs font-semibold text-brand-500 tracking-widest uppercase mb-2">Penawaran spesial</p>
+    <h2 class="text-2xl font-extrabold text-center text-gray-900 mb-6 leading-snug">Semua ini bisa lo dapetin<br/>hari ini</h2>
+    <div class="bg-white rounded-3xl border-2 border-brand-500 p-6 mb-6 shadow-lg">
+      <div class="text-center mb-4">
+        <p class="text-xs text-gray-400 line-through mb-1">Harga normal: Rp 2.500.000</p>
+        <p class="text-5xl font-extrabold text-brand-500">Rp 89.000,-</p>
+        <p class="text-xs text-gray-500 mt-1">Bayar sekali · Akses seumur hidup</p>
+      </div>
+      <ul class="space-y-2 mb-6">
+        <li class="flex gap-2 items-center text-sm text-gray-700">
+          <span class="icon icon-md flex-shrink-0 text-brand-500"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66 98.34a8 8 0 0 1 0 11.32l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 0ZM232 128A104 104 0 1 1 128 24a104.11 104.11 0 0 1 104 104Zm-16 0a88 88 0 1 0-88 88 88.1 88.1 0 0 0 88-88Z"/></svg></span>
+          Item / Modul 1
         </li>
-        <li class="flex gap-3 items-start bg-gray-50 rounded-xl p-4">
-          <span class="text-2xl">😤</span>
-          <p class="text-sm text-gray-700 leading-relaxed">
-            <strong>Pain point 2</strong> — semakin spesifik makin bagus, biar audiens ngerasa "ini gue banget."
-          </p>
+        <li class="flex gap-2 items-center text-sm text-gray-700">
+          <span class="icon icon-md flex-shrink-0 text-brand-500"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66 98.34a8 8 0 0 1 0 11.32l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 0ZM232 128A104 104 0 1 1 128 24a104.11 104.11 0 0 1 104 104Zm-16 0a88 88 0 1 0-88 88 88.1 88.1 0 0 0 88-88Z"/></svg></span>
+          Item / Modul 2
         </li>
-        <li class="flex gap-3 items-start bg-gray-50 rounded-xl p-4">
-          <span class="text-2xl">😮‍💨</span>
-          <p class="text-sm text-gray-700 leading-relaxed">
-            <strong>Pain point 3</strong> — tutup dengan yang paling relatable atau yang paling parah.
-          </p>
+        <li class="flex gap-2 items-center text-sm text-gray-700">
+          <span class="icon icon-md flex-shrink-0 text-brand-500"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66 98.34a8 8 0 0 1 0 11.32l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 0ZM232 128A104 104 0 1 1 128 24a104.11 104.11 0 0 1 104 104Zm-16 0a88 88 0 1 0-88 88 88.1 88.1 0 0 0 88-88Z"/></svg></span>
+          Item / Modul 3
+        </li>
+        <li class="flex gap-2 items-center text-sm text-gray-700">
+          <span class="icon icon-md flex-shrink-0 text-accent"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216 72h-30.54C187.19 66.68 192 58.89 192 48a40 40 0 0 0-80 0c0 10.89 4.81 18.68 6.54 24H88a16 16 0 0 0-16 16v32a16 16 0 0 0 8 13.83V208a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16v-72.17A16 16 0 0 0 248 120V88a16 16 0 0 0-16-16Zm-40-24a24 24 0 0 1 24 24c0 13.42-20.27 24-24 24h-24v-2.89C152 83.79 158.74 48 176 48Zm-80 24a24 24 0 0 1 48 0c0 10.82-7 21.79-7.33 22.3A8 8 0 0 1 128 96H104V72ZM88 120V88h56v32Zm16 88v-72h40v72Zm112 0h-56v-72h56Zm16-88h-72V88h56v32Z"/></svg></span>
+          🎁 Bonus Eksklusif
         </li>
       </ul>
-
-      <div class="mt-6 p-4 bg-brand-50 rounded-xl border border-brand-100">
-        <p class="text-sm text-gray-700 text-center leading-relaxed">
-          Masalahnya bukan karena lo kurang usaha.<br/>
-          <strong class="text-brand-500">Masalahnya adalah belum punya tools yang tepat.</strong>
-        </p>
+      <!-- Countdown -->
+      <div class="bg-brand-50 rounded-2xl p-4 mb-4 text-center">
+        <p class="text-xs text-gray-500 mb-2">⏳ Harga diskon berakhir dalam</p>
+        <div id="countdown" class="text-3xl font-extrabold text-brand-500 tracking-widest">
+          <span id="cd-hours">00</span>:<span id="cd-mins">30</span>:<span id="cd-secs">00</span>
+        </div>
+        <p class="text-xs text-gray-400 mt-1">Setelah timer habis, harga kembali ke normal</p>
       </div>
-    </div>
-  </section>
-
-  <!-- PRODUCT / BUNDLE PREVIEW -->
-  <section class="px-4 py-10 bg-white fade-in" id="product-section">
-    <div class="max-w-md mx-auto">
-      <p class="text-center text-xs font-semibold text-brand-500 tracking-widest uppercase mb-2">
-        Yang lo dapetin
-      </p>
-      <h2 class="text-2xl font-extrabold text-center text-gray-900 mb-2 leading-snug">
-        Isi Lengkap<br/><span class="grad-text">Nama Produk Lo</span>
-      </h2>
-      <p class="text-center text-sm text-gray-500 mb-6">
-        Geser untuk lihat semua isi →
-      </p>
-
-      <!-- Bundle scroll -->
-      <div class="bundle-scroll pb-2 mb-6">
-        <!-- Bundle item 1 -->
-        <div class="bundle-card">
-          <div class="img-placeholder rounded-2xl mb-2" style="height: 160px;">
-            <div class="text-center">
-              <i class="ph ph-image text-4xl mb-1 block"></i>
-              <span class="text-xs">Preview 1</span>
-            </div>
-          </div>
-          <p class="text-xs font-semibold text-gray-700 text-center">Nama item / modul 1</p>
-        </div>
-        <!-- Bundle item 2 -->
-        <div class="bundle-card">
-          <div class="img-placeholder rounded-2xl mb-2" style="height: 160px;">
-            <div class="text-center">
-              <i class="ph ph-image text-4xl mb-1 block"></i>
-              <span class="text-xs">Preview 2</span>
-            </div>
-          </div>
-          <p class="text-xs font-semibold text-gray-700 text-center">Nama item / modul 2</p>
-        </div>
-        <!-- Bundle item 3 -->
-        <div class="bundle-card">
-          <div class="img-placeholder rounded-2xl mb-2" style="height: 160px;">
-            <div class="text-center">
-              <i class="ph ph-image text-4xl mb-1 block"></i>
-              <span class="text-xs">Preview 3</span>
-            </div>
-          </div>
-          <p class="text-xs font-semibold text-gray-700 text-center">Nama item / modul 3</p>
-        </div>
-        <!-- Bundle item 4 -->
-        <div class="bundle-card">
-          <div class="img-placeholder rounded-2xl mb-2" style="height: 160px;">
-            <div class="text-center">
-              <i class="ph ph-image text-4xl mb-1 block"></i>
-              <span class="text-xs">Preview 4</span>
-            </div>
-          </div>
-          <p class="text-xs font-semibold text-gray-700 text-center">Nama item / modul 4</p>
-        </div>
-      </div>
-
-      <!-- What's included list -->
-      <div class="space-y-3">
-        <div class="flex gap-3 items-start">
-          <span class="text-brand-500 mt-0.5 flex-shrink-0">
-            <i class="ph ph-check-circle-fill text-xl"></i>
-          </span>
-          <div>
-            <p class="text-sm font-semibold text-gray-800">Item / Modul 1</p>
-            <p class="text-xs text-gray-500">Deskripsi singkat manfaatnya untuk pembeli.</p>
-          </div>
-        </div>
-        <div class="flex gap-3 items-start">
-          <span class="text-brand-500 mt-0.5 flex-shrink-0">
-            <i class="ph ph-check-circle-fill text-xl"></i>
-          </span>
-          <div>
-            <p class="text-sm font-semibold text-gray-800">Item / Modul 2</p>
-            <p class="text-xs text-gray-500">Deskripsi singkat manfaatnya untuk pembeli.</p>
-          </div>
-        </div>
-        <div class="flex gap-3 items-start">
-          <span class="text-brand-500 mt-0.5 flex-shrink-0">
-            <i class="ph ph-check-circle-fill text-xl"></i>
-          </span>
-          <div>
-            <p class="text-sm font-semibold text-gray-800">Item / Modul 3</p>
-            <p class="text-xs text-gray-500">Deskripsi singkat manfaatnya untuk pembeli.</p>
-          </div>
-        </div>
-        <div class="flex gap-3 items-start">
-          <span class="text-accent mt-0.5 flex-shrink-0">
-            <i class="ph ph-gift text-xl"></i>
-          </span>
-          <div>
-            <p class="text-sm font-semibold text-gray-800">
-              🎁 Bonus: Nama Bonus Eksklusif
-            </p>
-            <p class="text-xs text-gray-500">Deskripsi bonus — buat yang bikin perceived value naik.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <section class="px-4 py-10 bg-brand-500 fade-in">
-    <div class="max-w-md mx-auto">
-      <p class="text-center text-brand-100 text-xs font-semibold tracking-widest uppercase mb-6">
-        Bukan sekadar klaim
-      </p>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="bg-white/10 rounded-2xl p-4 text-center">
-          <p class="text-3xl font-extrabold text-white">500+</p>
-          <p class="text-brand-100 text-xs mt-1">Pembeli puas</p>
-        </div>
-        <div class="bg-white/10 rounded-2xl p-4 text-center">
-          <p class="text-3xl font-extrabold text-white">4.9★</p>
-          <p class="text-brand-100 text-xs mt-1">Rating rata-rata</p>
-        </div>
-        <div class="bg-white/10 rounded-2xl p-4 text-center">
-          <p class="text-3xl font-extrabold text-white">XX+</p>
-          <p class="text-brand-100 text-xs mt-1">Angka relevan produk lo</p>
-        </div>
-        <div class="bg-white/10 rounded-2xl p-4 text-center">
-          <p class="text-3xl font-extrabold text-white">Instan</p>
-          <p class="text-brand-100 text-xs mt-1">Akses setelah bayar</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTI -->
-  <section class="px-4 py-10 bg-white fade-in">
-    <div class="max-w-md mx-auto">
-      <p class="text-center text-xs font-semibold text-brand-500 tracking-widest uppercase mb-2">
-        Kata mereka
-      </p>
-      <h2 class="text-2xl font-extrabold text-center text-gray-900 mb-2">
-        Yang bikin makin yakin
-      </h2>
-      <p class="text-center text-sm text-gray-400 mb-6">Geser untuk lihat semua →</p>
-
-      <div class="testi-scroll pb-2">
-        <!-- Testimoni 1 -->
-        <div class="testi-card bg-gray-50 rounded-2xl p-4">
-          <div class="flex gap-3 items-center mb-3">
-            <div class="img-placeholder rounded-full flex-shrink-0"
-                 style="width:44px;height:44px;">
-              <i class="ph ph-user text-lg"></i>
-            </div>
-            <div>
-              <p class="text-sm font-bold text-gray-800">Nama Pembeli</p>
-              <p class="text-xs text-gray-400">@username_ig</p>
-            </div>
-          </div>
-          <div class="flex gap-0.5 mb-2">
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-          </div>
-          <p class="text-sm text-gray-700 leading-relaxed">
-            "Tulis testimoni asli dari pembeli lo di sini. Makin spesifik makin bagus — ceritain
-            sebelum/sesudah atau hasil konkretnya."
-          </p>
-        </div>
-        <!-- Testimoni 2 -->
-        <div class="testi-card bg-gray-50 rounded-2xl p-4">
-          <div class="flex gap-3 items-center mb-3">
-            <div class="img-placeholder rounded-full flex-shrink-0"
-                 style="width:44px;height:44px;">
-              <i class="ph ph-user text-lg"></i>
-            </div>
-            <div>
-              <p class="text-sm font-bold text-gray-800">Nama Pembeli 2</p>
-              <p class="text-xs text-gray-400">@username_ig</p>
-            </div>
-          </div>
-          <div class="flex gap-0.5 mb-2">
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-          </div>
-          <p class="text-sm text-gray-700 leading-relaxed">
-            "Testimoni kedua. Kalau punya screenshot testimoni asli, ganti section ini dengan
-            komponen gambar — lebih powerful dari teks."
-          </p>
-        </div>
-        <!-- Testimoni 3 -->
-        <div class="testi-card bg-gray-50 rounded-2xl p-4">
-          <div class="flex gap-3 items-center mb-3">
-            <div class="img-placeholder rounded-full flex-shrink-0"
-                 style="width:44px;height:44px;">
-              <i class="ph ph-user text-lg"></i>
-            </div>
-            <div>
-              <p class="text-sm font-bold text-gray-800">Nama Pembeli 3</p>
-              <p class="text-xs text-gray-400">@username_ig</p>
-            </div>
-          </div>
-          <div class="flex gap-0.5 mb-2">
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-            <i class="ph ph-star-fill text-yellow-400 text-sm"></i>
-          </div>
-          <p class="text-sm text-gray-700 leading-relaxed">
-            "Testimoni ketiga. Idealnya 5–8 testimoni biar section ini panjang dan bikin
-            percaya."
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING / URGENCY -->
-  <section class="px-4 py-10 bg-gray-50 fade-in">
-    <div class="max-w-md mx-auto">
-      <p class="text-center text-xs font-semibold text-brand-500 tracking-widest uppercase mb-2">
-        Penawaran spesial
-      </p>
-      <h2 class="text-2xl font-extrabold text-center text-gray-900 mb-6 leading-snug">
-        Semua ini bisa lo dapetin<br/>hari ini
-      </h2>
-
-      <!-- Price box -->
-      <div class="bg-white rounded-3xl border-2 border-brand-500 p-6 mb-6 shadow-lg">
-        <div class="text-center mb-4">
-          <p class="text-xs text-gray-400 line-through mb-1">Harga normal: Rp 2.500.000</p>
-          <p class="text-5xl font-extrabold text-brand-500">Rp 89.000,-</p>
-          <p class="text-xs text-gray-500 mt-1">Bayar sekali · Akses seumur hidup</p>
-        </div>
-
-        <!-- What's included summary -->
-        <ul class="space-y-2 mb-6">
-          <li class="flex gap-2 items-center text-sm text-gray-700">
-            <i class="ph ph-check-circle-fill text-brand-500 flex-shrink-0"></i>
-            Item / Modul 1
-          </li>
-          <li class="flex gap-2 items-center text-sm text-gray-700">
-            <i class="ph ph-check-circle-fill text-brand-500 flex-shrink-0"></i>
-            Item / Modul 2
-          </li>
-          <li class="flex gap-2 items-center text-sm text-gray-700">
-            <i class="ph ph-check-circle-fill text-brand-500 flex-shrink-0"></i>
-            Item / Modul 3
-          </li>
-          <li class="flex gap-2 items-center text-sm text-gray-700">
-            <i class="ph ph-gift text-accent flex-shrink-0"></i>
-            🎁 Bonus Eksklusif
-          </li>
-        </ul>
-
-        <!-- Countdown timer -->
-        <div class="bg-brand-50 rounded-2xl p-4 mb-5 text-center">
-          <p class="text-xs text-gray-500 mb-2">⏳ Harga diskon berakhir dalam</p>
-          <div id="countdown"
-               class="text-3xl font-extrabold text-brand-500 tracking-widest">
-            <span id="cd-hours">00</span>:<span id="cd-mins">30</span>:<span id="cd-secs">00</span>
-          </div>
-          <p class="text-xs text-gray-400 mt-1">
-            Setelah timer habis, harga kembali ke normal
-          </p>
-        </div>
-
-        <!-- CTA button -->
-        <a href="https://lynk.id/ez.cuan/o2ykwo4vkmor/checkout"
-           onclick="trackCTA('pricing')"
-           class="block w-full bg-brand-500 hover:bg-brand-600 active:bg-brand-700
-                  text-white text-center font-bold text-lg rounded-2xl py-5
-                  transition-colors duration-200 shadow-md mb-3">
-          Beli Sekarang - Rp 89.000,-
-        </a>
-
-        <p class="text-center text-xs text-gray-400">
-          Pembayaran aman · Akses langsung setelah bayar
-        </p>
-      </div>
-
-      <!-- Guarantee -->
-      <div class="flex gap-3 items-center bg-white rounded-2xl p-4 border border-gray-100">
-        <i class="ph ph-shield-check text-3xl text-green-500 flex-shrink-0"></i>
-        <div>
-          <p class="text-sm font-bold text-gray-800">Garansi Kepuasan 100%</p>
-          <p class="text-xs text-gray-500 leading-relaxed mt-0.5">
-            Kalau apa yang lo terima ga sesuai yang dijanjikan, uang lo balik 100%.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="px-4 py-10 bg-white fade-in">
-    <div class="max-w-md mx-auto">
-      <p class="text-center text-xs font-semibold text-brand-500 tracking-widest uppercase mb-2">
-        FAQ
-      </p>
-      <h2 class="text-2xl font-extrabold text-center text-gray-900 mb-6">
-        Yang sering ditanyain
-      </h2>
-
-      <div class="space-y-3" id="faq-list">
-        <!-- FAQ items (accordion) -->
-        <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
-          <button onclick="toggleFaq(this)"
-                  class="w-full flex justify-between items-center px-4 py-4 text-left">
-            <span class="text-sm font-semibold text-gray-800">
-              Ini produk fisik atau digital?
-            </span>
-            <i class="ph ph-caret-down text-gray-400 flex-shrink-0 transition-transform duration-200"></i>
-          </button>
-          <div class="faq-answer hidden px-4 pb-4">
-            <p class="text-sm text-gray-600 leading-relaxed">
-              Produk digital — setelah bayar langsung lo terima akses/file-nya via [WhatsApp/email/link].
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
-          <button onclick="toggleFaq(this)"
-                  class="w-full flex justify-between items-center px-4 py-4 text-left">
-            <span class="text-sm font-semibold text-gray-800">
-              Gimana cara bayarnya?
-            </span>
-            <i class="ph ph-caret-down text-gray-400 flex-shrink-0 transition-transform duration-200"></i>
-          </button>
-          <div class="faq-answer hidden px-4 pb-4">
-            <p class="text-sm text-gray-600 leading-relaxed">
-              Transfer bank, QRIS, GoPay, OVO, dan e-wallet lainnya via Lynk.id.
-              Proses otomatis dan cepat.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
-          <button onclick="toggleFaq(this)"
-                  class="w-full flex justify-between items-center px-4 py-4 text-left">
-            <span class="text-sm font-semibold text-gray-800">
-              Pertanyaan umum lainnya?
-            </span>
-            <i class="ph ph-caret-down text-gray-400 flex-shrink-0 transition-transform duration-200"></i>
-          </button>
-          <div class="faq-answer hidden px-4 pb-4">
-            <p class="text-sm text-gray-600 leading-relaxed">
-              Jawaban yang meyakinkan dan spesifik. Hindari jawaban yang terlalu generik.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
-          <button onclick="toggleFaq(this)"
-                  class="w-full flex justify-between items-center px-4 py-4 text-left">
-            <span class="text-sm font-semibold text-gray-800">
-              Apakah ada garansi?
-            </span>
-            <i class="ph ph-caret-down text-gray-400 flex-shrink-0 transition-transform duration-200"></i>
-          </button>
-          <div class="faq-answer hidden px-4 pb-4">
-            <p class="text-sm text-gray-600 leading-relaxed">
-              Ada. Kalau produk ga sesuai yang lo janjiin di halaman ini, uang kembali 100%.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CLOSING CTA -->
-  <section class="px-4 py-12 bg-brand-50 fade-in">
-    <div class="max-w-md mx-auto text-center">
-      <h2 class="text-2xl font-extrabold text-gray-900 leading-snug mb-4">
-        Mulai [hasil yang lo janjiin]<br/>
-        <span class="grad-text">dari sekarang.</span>
-      </h2>
-      <p class="text-sm text-gray-600 leading-relaxed mb-8">
-        Satu kalimat closing yang emosional. Jangan kasih alasan buat nunda.
-      </p>
       <a href="https://lynk.id/ez.cuan/o2ykwo4vkmor/checkout"
-         onclick="trackCTA('closing')"
-         class="block w-full bg-brand-500 hover:bg-brand-600 active:bg-brand-700
-                text-white text-center font-bold text-lg rounded-2xl py-5
-                transition-colors duration-200 shadow-lg mb-3">
+         onclick="trackCTA('pricing')"
+         class="btn-primary shadow-md mb-3">
         Beli Sekarang - Rp 89.000,-
       </a>
-      <p class="text-xs text-gray-400">
-        Pembayaran aman · Langsung dapat akses setelah bayar
-      </p>
+      <p class="text-center text-xs text-gray-400">Pembayaran aman · Akses langsung setelah bayar</p>
     </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="px-4 py-10 bg-gray-50 fade-in">
-    <div class="max-w-md mx-auto">
-        <p class="text-center text-xs font-semibold text-brand-500 tracking-widest uppercase mb-2">
-            Siapa gweh?
-        </p>
-        <!-- Creator Image (dummy) -->
-        <div>
-            <img src="img/ottopfp.webp" alt="Otto Matick Al-Gorithmy" class="img-placeholder rounded-full mx-auto mb-4 border-4 border-white shadow-md" style="width: 96px; height: 96px;">
-        </div>
-        
-        <h2 class="text-xl font-extrabold text-center text-gray-900 mb-3">
-            Kenalin, gweh Otto Matick Al-Gorithmy, founder EZ Cuan 👋
-        </h2>
-        <p class="text-sm text-gray-600 text-center leading-relaxed mb-2">
-            Gweh lulusan S1 Sistem Informasi yang sekarang lagi bereksperimen cari cuan lewat internet dengan modal minim, tools sederhana, dan cara yang realistis buat bisa dipraktekin sama siapa aja.
-        </p>
-        <div class="flex flex-wrap justify-center gap-2 mb-2">
-            <span class="bg-white border border-gray-200 text-xs text-gray-600 px-3 py-1 rounded-full">
-                Eksperimen Cari Cuan Online
-            </span>
-        </div>
-        <div class="flex flex-wrap justify-center gap-2">
-            <span class="bg-white border border-gray-200 text-xs text-gray-600 px-3 py-1 rounded-full">
-                Connect With Me
-            </span>
-        </div>
-        
-        <!-- MINIMAL SOCIAL BUTTONS -->
-        
-        <div class="minimal-socials">
-          <!-- Instagram -->
-          <a href="https://instagram.com/ez.cuan" target="_blank" rel="noopener noreferrer" class="minimal-social-btn" aria-label="Instagram">
-            <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.9"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true">
-              <rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </a>
-          
-          <!-- Threads -->
-          <a href="https://threads.com/@ez.cuan" target="_blank" rel="noopener noreferrer" class="minimal-social-btn" aria-label="Threads">
-            <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.9"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true">
-              <path d="M19 7.5c-1.333 -3 -3.667 -4.5 -7 -4.5c-5 0 -8 2.5 -8 9s3.5 9 8 9s7 -3 7 -5s-1 -5 -7 -5c-2.5 0 -3 1.25 -3 2.5c0 1.5 1 2.5 2.5 2.5c2.5 0 3.5 -1.5 3.5 -5s-2 -4 -3 -4s-1.833 .333 -2.5 1"></path>
-            </svg>
-          </a>
-        </div>
+    <!-- Guarantee -->
+    <div class="flex gap-3 items-center bg-white rounded-2xl p-4 border border-gray-100">
+      <span class="icon icon-xl flex-shrink-0 text-green-500">
+        <!-- shield-check -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="m224.07 74.67-88-48a16 16 0 0 0-16.14 0l-88 48A16 16 0 0 0 24 88.76c.34 65.23 26.24 117.18 73.63 147.35a16 16 0 0 0 16.74 0C161.76 206 187.66 154 188 88.76a16 16 0 0 0-7.93-14.09ZM170.66 101.3l-52 64a8 8 0 0 1-6 2.7 8 8 0 0 1-5.66-2.34l-24-24a8 8 0 0 1 11.32-11.31l17.77 17.77 46.31-57a8 8 0 1 1 12.28 10.22Z"/></svg>
+      </span>
+      <div>
+        <p class="text-sm font-bold text-gray-800">Garansi Kepuasan 100%</p>
+        <p class="text-xs text-gray-500 leading-relaxed mt-1">Kalau apa yang lo terima ga sesuai yang dijanjikan, uang lo balik 100%.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="px-4 py-6 bg-white border-t border-gray-100">
-    <div class="max-w-md mx-auto text-center">
-      <p class="text-xs text-gray-400">
-        ©2026 EZ Cuan · All rights reserved
-      </p>
+<!-- FAQ -->
+<section class="px-4 py-10 bg-white fade-in">
+  <div class="max-w-md mx-auto">
+    <p class="text-center text-xs font-semibold text-brand-500 tracking-widest uppercase mb-2">FAQ</p>
+    <h2 class="text-2xl font-extrabold text-center text-gray-900 mb-6">Yang sering ditanyain</h2>
+    <div class="space-y-3" id="faq-list">
+      <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center px-4 py-4 text-left">
+          <span class="text-sm font-semibold text-gray-800">Ini produk fisik atau digital?</span>
+          <span class="faq-caret icon icon-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="m213.66 101.66-80 80a8 8 0 0 1-11.32 0l-80-80a8 8 0 0 1 11.32-11.32L128 164.69l74.34-74.35a8 8 0 0 1 11.32 11.32Z"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer hidden px-4 pb-4">
+          <p class="text-sm text-gray-600 leading-relaxed">Produk digital — setelah bayar langsung lo terima akses/file-nya via [WhatsApp/email/link].</p>
+        </div>
+      </div>
+      <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center px-4 py-4 text-left">
+          <span class="text-sm font-semibold text-gray-800">Gimana cara bayarnya?</span>
+          <span class="faq-caret icon icon-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="m213.66 101.66-80 80a8 8 0 0 1-11.32 0l-80-80a8 8 0 0 1 11.32-11.32L128 164.69l74.34-74.35a8 8 0 0 1 11.32 11.32Z"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer hidden px-4 pb-4">
+          <p class="text-sm text-gray-600 leading-relaxed">Transfer bank, QRIS, GoPay, OVO, dan e-wallet lainnya via Lynk.id. Proses otomatis dan cepat.</p>
+        </div>
+      </div>
+      <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center px-4 py-4 text-left">
+          <span class="text-sm font-semibold text-gray-800">Pertanyaan umum lainnya?</span>
+          <span class="faq-caret icon icon-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="m213.66 101.66-80 80a8 8 0 0 1-11.32 0l-80-80a8 8 0 0 1 11.32-11.32L128 164.69l74.34-74.35a8 8 0 0 1 11.32 11.32Z"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer hidden px-4 pb-4">
+          <p class="text-sm text-gray-600 leading-relaxed">Jawaban yang meyakinkan dan spesifik. Hindari jawaban yang terlalu generik.</p>
+        </div>
+      </div>
+      <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center px-4 py-4 text-left">
+          <span class="text-sm font-semibold text-gray-800">Apakah ada garansi?</span>
+          <span class="faq-caret icon icon-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="m213.66 101.66-80 80a8 8 0 0 1-11.32 0l-80-80a8 8 0 0 1 11.32-11.32L128 164.69l74.34-74.35a8 8 0 0 1 11.32 11.32Z"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer hidden px-4 pb-4">
+          <p class="text-sm text-gray-600 leading-relaxed">Ada. Kalau produk ga sesuai yang lo janjiin di halaman ini, uang kembali 100%.</p>
+        </div>
+      </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- JS -->
-  <script>
-    // ---- 1. META PIXEL — ViewContent Event ----
-    // Fire saat user scroll ke product section
-    let viewContentFired = false;
-    const productSection = document.getElementById('product-section');
+<!-- CLOSING CTA -->
+<section class="px-4 py-12 bg-brand-50 fade-in">
+  <div class="max-w-md mx-auto text-center">
+    <h2 class="text-2xl font-extrabold text-gray-900 leading-snug mb-4">
+      Mulai [hasil yang lo janjiin]<br/>
+      <span class="grad-text">dari sekarang.</span>
+    </h2>
+    <p class="text-sm text-gray-600 leading-relaxed mb-8">Satu kalimat closing yang emosional. Jangan kasih alasan buat nunda.</p>
+    <a href="https://lynk.id/ez.cuan/o2ykwo4vkmor/checkout"
+       onclick="trackCTA('closing')"
+       class="btn-primary shadow-lg mb-3">
+      Beli Sekarang - Rp 89.000,-
+    </a>
+    <p class="text-xs text-gray-400">Pembayaran aman · Langsung dapat akses setelah bayar</p>
+  </div>
+</section>
 
-    const vcObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !viewContentFired) {
-          viewContentFired = true;
-          if (typeof fbq !== 'undefined') {
-            fbq('track', 'ViewContent', {
-              content_name: '8 Juta+ Produk Digital Premiun Siap Pakai & Jual Ulang | Lisensi U-PLR MRR',      // <-- GANTI
-              content_category: 'Digital Product',
-              value: 89000,                        // <-- GANTI dengan harga lo (dalam IDR)
-              currency: 'IDR'
-            });
-          }
+<!-- ABOUT -->
+<section class="px-4 py-10 bg-gray-50 fade-in">
+  <div class="max-w-md mx-auto">
+    <p class="text-center text-xs font-semibold text-brand-500 tracking-widest uppercase mb-2">Siapa gweh?</p>
+    <div>
+      <img src="img/ottopfp.webp" alt="Otto Matick Al-Gorithmy"
+           class="img-placeholder rounded-full mx-auto mb-4 border-4 border-white shadow-md"
+           width="96" height="96"
+           style="width:96px;height:96px;object-fit:cover;">
+    </div>
+    <h2 class="text-xl font-extrabold text-center text-gray-900 mb-3">
+      Kenalin, gweh Otto Matick Al-Gorithmy, founder EZ Cuan 👋
+    </h2>
+    <p class="text-sm text-gray-600 text-center leading-relaxed mb-2">
+      Gweh lulusan S1 Sistem Informasi yang sekarang lagi bereksperimen cari cuan lewat internet dengan modal minim, tools sederhana, dan cara yang realistis buat bisa dipraktekin sama siapa aja.
+    </p>
+    <div class="flex flex-wrap justify-center gap-2 mb-2">
+      <span class="bg-white border border-gray-200 text-xs text-gray-600 px-3 py-1 rounded-full">Eksperimen Cari Cuan Online</span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-2 mb-2">
+      <span class="bg-white border border-gray-200 text-xs text-gray-600 px-3 py-1 rounded-full">Connect With Me</span>
+    </div>
+    <div class="minimal-socials">
+      <a href="https://instagram.com/ez.cuan" target="_blank" rel="noopener noreferrer" class="minimal-social-btn" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+      <a href="https://threads.com/@ez.cuan" target="_blank" rel="noopener noreferrer" class="minimal-social-btn" aria-label="Threads">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M19 7.5c-1.333-3-3.667-4.5-7-4.5c-5 0-8 2.5-8 9s3.5 9 8 9s7-3 7-5s-1-5-7-5c-2.5 0-3 1.25-3 2.5c0 1.5 1 2.5 2.5 2.5c2.5 0 3.5-1.5 3.5-5s-2-4-3-4s-1.833.333-2.5 1"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="px-4 py-6 bg-white border-t">
+  <div class="max-w-md mx-auto text-center">
+    <p class="text-xs text-gray-400">©2026 EZ Cuan · All rights reserved</p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     META PIXEL — dipindah ke bawah, load setelah konten render
+     Ini mengurangi render-blocking time secara signifikan
+============================================================= -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','1005373541927153');
+  fbq('track','PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1005373541927153&ev=PageView&noscript=1"/>
+</noscript>
+<!-- CAPI: Connect via server-side event / integration partner (Lynk.id) -->
+
+<!-- ============================================================
+     APP JAVASCRIPT
+============================================================= -->
+<script>
+  // 1. ViewContent event (Pixel) — saat product section masuk layar
+  let viewContentFired = false;
+  const productSection = document.getElementById('product-section');
+  const vcObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !viewContentFired) {
+        viewContentFired = true;
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'ViewContent', {
+            content_name: '8 Juta+ Produk Digital Siap Pakai & Jual Ulang | Lisensi U-PLR MRR',
+            content_category: 'Digital Product',
+            value: 89000,
+            currency: 'IDR'
+          });
         }
+      }
+    });
+  }, { threshold: 0.3 });
+  if (productSection) vcObserver.observe(productSection);
+
+  // 2. InitiateCheckout event
+  function trackCTA(source) {
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'InitiateCheckout', {
+        content_name: '8 Juta+ Produk Digital Siap Pakai & Jual Ulang | Lisensi U-PLR MRR',
+        value: 89000,
+        currency: 'IDR',
+        source: source
       });
-    }, { threshold: 0.3 });
-
-    if (productSection) vcObserver.observe(productSection);
-
-    // ---- 2. Track CTA Clicks (InitiateCheckout) ----
-    function trackCTA(source) {
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'InitiateCheckout', {
-          content_name: '8 Juta+ Produk Digital Premiun Siap Pakai & Jual Ulang | Lisensi U-PLR MRR',          // <-- GANTI
-          value: 89000,                             // <-- GANTI
-          currency: 'IDR',
-          source: source
-        });
-      }
     }
+  }
 
-    // ---- 3. Sticky CTA Bar ----
-    const stickyCta = document.getElementById('sticky-cta');
-    const heroSection = document.querySelector('section');
+  // 3. Sticky CTA — pakai class 'show', konsisten dengan CSS
+  const stickyCta = document.getElementById('sticky-cta');
+  const heroSection = document.querySelector('section');
+  function updateStickyCta() {
+    stickyCta.classList.toggle('show', heroSection.getBoundingClientRect().bottom < 0);
+  }
+  window.addEventListener('scroll', updateStickyCta, { passive: true });
 
-    function updateStickyCta() {
-      const heroBottom = heroSection.getBoundingClientRect().bottom;
-      if (heroBottom < 0) {
-        stickyCta.classList.add('show');
-      } else {
-        stickyCta.classList.remove('show');
+  // 4. Fade-in on scroll
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+        fadeObserver.unobserve(el.target);
       }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+  // 5. Countdown — baca dari sessionStorage biar timer ga reset pas refresh
+  (function() {
+    const KEY = 'cd_end';
+    let endTime = sessionStorage.getItem(KEY);
+    if (!endTime) {
+      endTime = Date.now() + 30 * 60 * 1000; // 30 menit
+      sessionStorage.setItem(KEY, endTime);
     }
-
-    window.addEventListener('scroll', updateStickyCta, { passive: true });
-    updateStickyCta(); // cek posisi awal
-
-    // ---- 4. Fade-in on scroll ----
-    const fadeEls = document.querySelectorAll('.fade-in');
-    const fadeObserver = new IntersectionObserver((entries) => {
-      entries.forEach(el => {
-        if (el.isIntersecting) {
-          el.target.classList.add('visible');
-          fadeObserver.unobserve(el.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    fadeEls.forEach(el => fadeObserver.observe(el));
-
-    // ---- 5. Countdown Timer ----
-    function startCountdown(durationMinutes) {
-      let total = durationMinutes * 60;
-      const hours = document.getElementById('cd-hours');
-      const mins  = document.getElementById('cd-mins');
-      const secs  = document.getElementById('cd-secs');
-
-      function tick() {
-        if (total <= 0) {
-          hours.textContent = '00';
-          mins.textContent  = '00';
-          secs.textContent  = '00';
-          return;
-        }
-        const h = Math.floor(total / 3600);
-        const m = Math.floor((total % 3600) / 60);
-        const s = total % 60;
-        hours.textContent = String(h).padStart(2, '0');
-        mins.textContent  = String(m).padStart(2, '0');
-        secs.textContent  = String(s).padStart(2, '0');
-        total--;
-        setTimeout(tick, 1000);
-      }
-      tick();
+    const hEl = document.getElementById('cd-hours');
+    const mEl = document.getElementById('cd-mins');
+    const sEl = document.getElementById('cd-secs');
+    function tick() {
+      const remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
+      const h = Math.floor(remaining / 3600);
+      const m = Math.floor((remaining % 3600) / 60);
+      const s = remaining % 60;
+      hEl.textContent = String(h).padStart(2,'0');
+      mEl.textContent = String(m).padStart(2,'0');
+      sEl.textContent = String(s).padStart(2,'0');
+      if (remaining > 0) setTimeout(tick, 1000);
     }
-    startCountdown(30); // Ganti angka menit sesuai kebutuhan lo
+    tick();
+  })();
 
-    // ---- 6. FAQ Accordion ----
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const icon   = btn.querySelector('i');
-      const isOpen = !answer.classList.contains('hidden');
-
-      // Tutup semua
-      document.querySelectorAll('.faq-answer').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.faq-item button i').forEach(i => {
-        i.style.transform = 'rotate(0deg)';
-      });
-
-      // Toggle yang diklik
-      if (!isOpen) {
-        answer.classList.remove('hidden');
-        icon.style.transform = 'rotate(180deg)';
-      }
+  // 6. FAQ accordion
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const caret  = btn.querySelector('.faq-caret');
+    const isOpen = !answer.classList.contains('hidden');
+    document.querySelectorAll('.faq-answer').forEach(el => el.classList.add('hidden'));
+    document.querySelectorAll('.faq-caret').forEach(el => el.classList.remove('open'));
+    if (!isOpen) {
+      answer.classList.remove('hidden');
+      caret.classList.add('open');
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>
