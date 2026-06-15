@@ -1,6 +1,12 @@
-8 Juta+ Produk Digital Premiun Siap Pakai & Jual Ulang | Lisensi U-PLR MRR
+# 8jt-produk-digital-uplr-mrr
 
-Landing Page for 8jt+ Produk Digital Lisensi U-PLR MRR - EZ Cuan | @ez.cuan
+Landing page experiment.
 
-Built with: HTML, TailwindCSS
-Live: [ezcuan.github.io/]
+Built with:
+
+* HTML
+* CSS
+* JavaScript
+
+Live:
+https://ezcuan.github.io/8jt-produk-digital-uplr-mrr
