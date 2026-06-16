@@ -870,31 +870,7 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
-  // 5. Countdown — baca dari sessionStorage biar timer ga reset pas refresh
-  (function() {
-    const KEY = 'cd_end';
-    let endTime = sessionStorage.getItem(KEY);
-    if (!endTime) {
-      endTime = Date.now() + 30 * 60 * 1000; // 30 menit
-      sessionStorage.setItem(KEY, endTime);
-    }
-    const hEl = document.getElementById('cd-hours');
-    const mEl = document.getElementById('cd-mins');
-    const sEl = document.getElementById('cd-secs');
-    function tick() {
-      const remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
-      const h = Math.floor(remaining / 3600);
-      const m = Math.floor((remaining % 3600) / 60);
-      const s = remaining % 60;
-      hEl.textContent = String(h).padStart(2,'0');
-      mEl.textContent = String(m).padStart(2,'0');
-      sEl.textContent = String(s).padStart(2,'0');
-      if (remaining > 0) setTimeout(tick, 1000);
-    }
-    tick();
-  })();
-
-  // 6. FAQ accordion
+  // 5. FAQ accordion
   function toggleFaq(btn) {
     const answer = btn.nextElementSibling;
     const caret  = btn.querySelector('.faq-caret');
