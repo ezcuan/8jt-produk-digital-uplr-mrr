@@ -1,23 +1,44 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {
+      if(f.fbq)return;
+      n=f.fbq=function(){
+        n.callMethod ?
+        n.callMethod.apply(n,arguments) :
+        n.queue.push(arguments)
+      };
+      if(!f._fbq)f._fbq=n;
+      n.push=n;
+      n.loaded=!0;
+      n.version='2.0';
+      n.queue=[];
+      t=b.createElement(e);
+      t.async=!0;
+      t.src=v;
+      s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s);
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1005373541927153');
+    fbq('track', 'PageView');
+  </script>
+  <!-- Meta Domain Verification -->
   <meta name="facebook-domain-verification" content="s8okkxu7txm11sqive77xb0s0xtxyg" />
   <title>8 Juta+ Produk Digital Cuma Rp89rb — Pakai Sendiri atau Jual Lagi</title>
-  <meta name="description" content="Template Canva, ebook, video faceless, worksheet — 8 juta+ produk digital dengan lisensi jual ulang PLR & MRR. Cocok buat yang mau mulai bisnis digital dari nol."/>
-  <meta property="og:title" content="8 Juta+ Produk Digital Cuma Rp89rb — Pakai Sendiri atau Jual Lagi"/>
-  <meta property="og:description" content="Template, ebook, video faceless, worksheet — 8 juta+ produk siap pakai dengan lisensi jual ulang. Hemat waktu & modal | Produk udah jadi, tinggal jual!"/>
-  <meta property="og:image" content="https://ezcuan.github.io/8jt-produk-digital-uplr-mrr/img/hero.webp"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://ezcuan.github.io/8jt-produk-digital-uplr-mrr"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+  <meta name="description" content="Template Canva, ebook, video faceless, worksheet — 8 juta+ produk digital dengan lisensi jual ulang PLR & MRR. Cocok buat yang mau mulai bisnis digital dari nol." />
+  <meta property="og:title" content="8 Juta+ Produk Digital Cuma Rp89rb — Pakai Sendiri atau Jual Lagi" />
+  <meta property="og:description" content="Template, ebook, video faceless, worksheet — 8 juta+ produk siap pakai dengan lisensi jual ulang. Hemat waktu & modal | Produk udah jadi, tinggal jual!" />
+  <meta property="og:image" content="https://ezcuan.online/img/hero.webp" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ezcuan.online" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png" />
 
-  <!-- ============================================================
-       ZERO-CDN: semua CSS inline — tidak ada render-blocking request
-       Tailwind CDN dihapus, Phosphor CDN dihapus.
-       Icon diganti SVG inline. Style dari style.css di-inline juga.
-  ============================================================= -->
   <style>
     /* ── Reset & base ─────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -403,7 +424,7 @@
   </div>
   <a href="https://lynk.id/ez.cuan/o2ykwo4vkmor/checkout"
      class="sticky-cta-btn"
-     onclick="trackCTA('sticky')">
+     onclick="trackCTAAndRedirect('sticky')">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M7 4H5L4 6v2h2l2.6 5.59-1.35 2.45A2 2 0 0 0 9 19h10v-2H9.42a.25.25 0 0 1-.22-.37L10.1 15h7.45a2 2 0 0 0 1.79-1.11L23 7H8.42L7.48 5 7 4ZM9 20a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/>
     </svg>
@@ -433,7 +454,7 @@
     </p>
 
     <!-- Hero Image -->
-    <div class="mb-6 shadow-lg">
+    <div class="mb-6 shadow-lg" style="border-radius:1rem;overflow:hidden;">
         <img
             src="img/hero.webp"
             alt="Preview produk digital"
@@ -458,7 +479,7 @@
     </div>
 
     <a href="https://lynk.id/ez.cuan/o2ykwo4vkmor/checkout"
-       onclick="trackCTA('hero')"
+       onclick="trackCTAAndRedirect('hero')"
        class="btn-primary shadow-lg mb-3">
       Harga Promo — Rp 89.000
     </a>
@@ -524,18 +545,7 @@
             <div style="overflow:hidden;border-radius:16px;margin-bottom:.5rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 8px 20px rgba(0,0,0,.06);height:160px;">
                 <img
                     src="img/bundlecard1.webp"
-                    alt="Template Canva"
-                    loading="lazy"
-                    decoding="async"
-                    style="display:block;width:100%;height:100%;object-fit:cover;"
-                >
-            </div>
-        </div>
-        <div class="bundle-card shadow-lg">
-            <div style="overflow:hidden;border-radius:16px;margin-bottom:.5rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 8px 20px rgba(0,0,0,.06);height:160px;">
-                <img
-                    src="img/bundlecard2.webp"
-                    alt="Template Canva"
+                    alt="Preview bundle produk digital vol. 1"
                     loading="lazy"
                     decoding="async"
                     style="display:block;width:100%;height:100%;object-fit:cover;"
@@ -546,7 +556,7 @@
             <div style="overflow:hidden;border-radius:16px;margin-bottom:.5rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 8px 20px rgba(0,0,0,.06);height:160px;">
                 <img
                     src="img/bundlecard3.webp"
-                    alt="Template Canva"
+                    alt="Preview bundle produk digital vol. 3"
                     loading="lazy"
                     decoding="async"
                     style="display:block;width:100%;height:100%;object-fit:cover;"
@@ -557,7 +567,7 @@
             <div style="overflow:hidden;border-radius:16px;margin-bottom:.5rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 8px 20px rgba(0,0,0,.06);height:160px;">
                 <img
                     src="img/bundlecard4.webp"
-                    alt="Template Canva"
+                    alt="Preview bundle produk digital vol. 4"
                     loading="lazy"
                     decoding="async"
                     style="display:block;width:100%;height:100%;object-fit:cover;"
@@ -568,7 +578,7 @@
             <div style="overflow:hidden;border-radius:16px;margin-bottom:.5rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 8px 20px rgba(0,0,0,.06);height:160px;">
                 <img
                     src="img/bundlecard5.webp"
-                    alt="Template Canva"
+                    alt="Preview bundle produk digital vol. 5"
                     loading="lazy"
                     decoding="async"
                     style="display:block;width:100%;height:100%;object-fit:cover;"
@@ -667,7 +677,7 @@
         <p class="text-xs text-gray-500 mt-1">Amankan akses sekarang sebelum harga naik!</p>
       </div>
       <a href="https://lynk.id/ez.cuan/o2ykwo4vkmor/checkout"
-         onclick="trackCTA('pricing')"
+         onclick="trackCTAAndRedirect('pricing')"
          class="btn-primary shadow-md mb-3">
         Harga Promo - Rp 89.000,-
       </a>
@@ -740,7 +750,7 @@
     </h2>
     <p class="text-sm text-gray-600 leading-relaxed mb-4">Ambil Promonya Sekarang! — Akses Seumur Hidup!</p>
     <a href="https://lynk.id/ez.cuan/o2ykwo4vkmor/checkout"
-       onclick="trackCTA('closing')"
+       onclick="trackCTAAndRedirect('closing')"
        class="btn-primary shadow-lg mb-3">
       Harga Promo - Rp 89.000,-
     </a>
@@ -795,28 +805,6 @@
 </footer>
 
 <!-- ============================================================
-     META PIXEL — dipindah ke bawah, load setelah konten render
-     Ini mengurangi render-blocking time secara signifikan
-============================================================= -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window,document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init','1005373541927153');
-  fbq('track','PageView');
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1005373541927153&ev=PageView&noscript=1"/>
-</noscript>
-<!-- CAPI: Connect via server-side event / integration partner (Lynk.id) -->
-
-<!-- ============================================================
      APP JAVASCRIPT
 ============================================================= -->
 <script>
@@ -830,6 +818,7 @@
         if (typeof fbq !== 'undefined') {
           fbq('track', 'ViewContent', {
             content_name: '8 Juta+ Produk Digital Siap Pakai & Jual Ulang | Lisensi U-PLR MRR',
+            content_type: 'product',
             content_category: 'Digital Product',
             value: 89000,
             currency: 'IDR'
@@ -840,16 +829,21 @@
   }, { threshold: 0.3 });
   if (productSection) vcObserver.observe(productSection);
 
-  // 2. InitiateCheckout event
-  function trackCTA(source) {
+  // 2. InitiateCheckout event — fire pixel, biarkan href handle redirect
+  function trackCTAAndRedirect(source) {
     if (typeof fbq !== 'undefined') {
       fbq('track', 'InitiateCheckout', {
-        content_name: '8 Juta+ Produk Digital Siap Pakai & Jual Ulang | Lisensi U-PLR MRR',
+        content_name: '8 Juta+ Produk Digital',
+        content_type: 'product',
         value: 89000,
         currency: 'IDR',
         source: source
+      }, {
+        eventID: Date.now().toString()
       });
     }
+    // return true — biarkan <a href> melanjutkan navigasi secara native
+    return true;
   }
 
   // 3. Sticky CTA — pakai class 'show', konsisten dengan CSS
