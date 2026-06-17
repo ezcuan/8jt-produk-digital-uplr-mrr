@@ -9,6 +9,6 @@ Built with:
 * JavaScript
 
 Live:
-https://ezcuan.github.io/8jt-produk-digital-uplr-mrr
+https://ezcuan.online
 
 Project by Otto Matick Al-Gorithmy
